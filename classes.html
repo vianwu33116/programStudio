@@ -1,10 +1,59 @@
----
-title: 課程介紹
-layout: ./app/layout.ejs
-engine: ejs
-current: classes
----
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>課程介紹</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+  </head>
 
+  <body>
+    <header class="bg-primary">
+      <div class="d-flex flex-wrap">
+        <div
+          class="logo-part pd-12 pt-4 pb-4 d-flex justify-content-between border-bottom border-success"
+        >
+          <img src="./assets/images/logo.svg" alt="logo" class="logo" />
+        </div>
+        <div
+          class="menu-hamburger d-block d-md-none pt-5 pb-4 text-end pd-12 border-bottom border-info"
+        >
+          <span class="material-icons ham-icon link">
+            drag_handle
+          </span>
+        </div>
+        <ul
+          class="header-links pt-4 pt-md-0 pd-12 list-unstyled flex-column flex-md-row justify-content-end align-items-center"
+        >
+          <li class="list-item mb-4 mb-md-0 text-center">
+            <a href="/" class="link">首頁</a>
+          </li>
+          <li class="list-item ms-md-6 mb-4 mb-md-0 text-center">
+            <a href="./classes.html" class="link">課程介紹</a>
+          </li>
+          <li
+            class="list-item ms-md-6 mb-4 mb-md-0 text-center"
+            data-bs-toggle="modal"
+            data-bs-target="#loginModal"
+          >
+            <div class="link">
+              <span class="material-icons"> account_circle </span>登入
+            </div>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    
 <div class="classes-content bg-secondary">
   <div class="swiper typeSwiper">
     <ul class="container d-flex list-unstyled types-list swiper-wrapper">
@@ -256,3 +305,130 @@ current: classes
     </li>
   </ul>
 </div>
+ <div
+  class="modal fade"
+  id="loginModal"
+  tabindex="-1"
+  aria-labelledby="loginModalLabel"
+  aria-hidden="true"
+>
+  <div
+    class="modal-dialog login-content d-flex align-items-center"
+    style="height: 100%; margin: 0 auto"
+  >
+    <div
+      class="modal-content d-flex flex-column align-items-center position-relative bg-primary border"
+    >
+      <div class="modal-wrap">
+        <div class="modal-header justify-content-center border-0">
+          <h3 class="modal-title" id="loginModalLabel">登入</h3>
+          <button
+            type="button"
+            class="bt position-absolute top-0 end-0 bg-primary text-light border-0"
+            data-bs-dismiss="modal"
+          >
+            X
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="" class="form">
+            <label for="email" class="login-label d-block text-gray-400">信箱</label>
+            <input
+              type="email"
+              id="email"
+              class="login-input d-block bg-secondary border mb-4 pt-2 pb-2 ps-3"
+              placeholder="請輸入信箱"
+            />
+            <label for="password" class="login-label d-block text-gray-400">密碼 </label>
+            <input
+              type="password"
+              id="password"
+              class="login-input d-block bg-secondary border mb-5 pt-2 pb-2 ps-3"
+              placeholder="請輸入密碼"
+            />
+            <input
+              type="button"
+              value="登入"
+              class="login-button d-block mb-6 border-0"
+            />
+            <div class="others">
+              <div class="fs-6 others-title mb-3 d-flex align-items-center text-gray-400">
+                <div class="line me-3"></div>
+                其他登入方式
+                <div class="line ms-3"></div>
+              </div>
+              <div class="other-way facebook text-center mb-4 border">
+                <img
+                  src="./assets/images/icon_fb.svg"
+                  alt="facebook-icon"
+                  class="icon"
+                />
+                Facebook 登入
+              </div>
+              <div class="other-way google text-center border">
+                <img
+                  src="./assets/images/icon_google.svg"
+                  alt="google-icon"
+                  class="icon"
+                />
+                Google 登入
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <footer class="footer bg-footer text-center fs-5 pt-4 pb-4">
+      Coding Home © 2022 All Rights Reserved
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 0,
+        loop: true,
+        speed: 4000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+        },
+      });
+      var swiper = new Swiper(".shareSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 30,
+        effect: "fade",
+        autoplay: {
+          disableOnInteraction: false,
+        },
+        speed: 2500,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".arrow-next",
+          prevEl: ".arrow-prev",
+        },
+      });
+      var swiper = new Swiper(".typeSwiper", {
+        slidesPerView: "auto",
+        spaceBetween: 0,
+        loop: true,
+        speed: 4000,
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: false,
+        },
+      });
+    </script>
+  </body>
+</html>
